@@ -11,7 +11,9 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "canvas-confetti": "1.9.3",
     "react": "^19.0.0",
+    "react-canvas-confetti": "2.0.7",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {

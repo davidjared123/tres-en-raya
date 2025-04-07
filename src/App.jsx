@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import './App.css'
 import { useState } from 'react'
+import confetti from 'canvas-confetti'
 
 const Square = ({children,isSelected, updateBoard, index}) => {
   const className = `square ${isSelected ? 'is-selected' : ''}`
@@ -74,6 +75,7 @@ const updateBoard = (index)=>{
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
       setWinner(newWinner)
+      confetti()
     } else if(checkEndGame(newBoard)) {
       setWinner(false)
     }

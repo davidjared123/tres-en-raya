@@ -17,8 +17,8 @@ const Square = ({children,isSelected, updateBoard, index}) => {
 }
 
 const TURNS = {
-  X: 'x',
-  O: 'o'
+  X: '✕',
+  O: '◯'
 }
 
 const WINNER_COMBOS = [

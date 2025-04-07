@@ -1,0 +1,180 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #747ade;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #787dd2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button{
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  border: none;
+  background-color: #747ade;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  margin: 1em;
+}
+
+button:hover {
+  background-color: #7479de54;
+  transform: scale(1.05);
+}
+
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+.game{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+  /* background: #000; */
+  justify-items: center;
+}
+
+.square{
+  border: 2px solid rgba(255, 255, 255, 0.148);
+  font-size: 2em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.game > .square{
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  height: 90px;
+  width: 90px;
+
+ 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  
+}
+.game > .square:hover {
+  border-color: #747ade;
+  background-color: #1a1a1a81;
+  transition: all 0.5s;
+}
+
+.turn{
+  margin-top: 1em;
+  gap: 0.5em;
+  justify-content: center;
+  display: flex;
+}
+.turn > .square{
+  /* background-color: #b8575725; */
+
+  border-radius: 8px;
+  height: 50px;
+  width: 50px;
+  font-size: 2em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor : default;
+}
+
+.turn > .square.is-selected{
+  background-color: #747ade;
+  transition: all 0.5s;
+}
+
+.modal-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.winner-modal{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+  background-color: #1a1a1a91;
+  border-radius: 8px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.win{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+
+}
+.win > .square{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

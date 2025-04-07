@@ -2,36 +2,12 @@
 import './App.css'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
+import { TURNS } from './constants.js'
+import { checkWinner, checkEndGame } from './logic/board.js'
+import { Square } from './componets/Square.jsx'
 
-const Square = ({children,isSelected, updateBoard, index}) => {
-  const className = `square ${isSelected ? 'is-selected' : ''}`
 
-  const handleClick = () => {
-    updateBoard(index)
-  }
 
-  return (
-    <div onClick={handleClick} className={className}>
-      {children}
-    </div>
-  );
-}
-
-const TURNS = {
-  X: '✕',
-  O: '◯'
-}
-
-const WINNER_COMBOS = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
 
 
 function App() {
@@ -39,19 +15,8 @@ function App() {
   const [turn, setTurn] = useState(TURNS.X)
   const [winner, setWinner] = useState(null)
 
-  const checkWinner = (boardToCheck) => {
-    for (const combo of WINNER_COMBOS) {
-      const [a, b, c] = combo
-      if (boardToCheck[a] && boardToCheck[a] === boardToCheck[b] && boardToCheck[a] === boardToCheck[c]) {
-        return boardToCheck[a]
-      }
-    }
-    return null
-  }
 
-  const checkEndGame = (newBoard) => {
-    return newBoard.every((square) => square !== null)
-  }
+
   // Reiniciar el juego
   const resetGame = () => {
     setBoard(Array(9).fill(null))
